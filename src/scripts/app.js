@@ -21,6 +21,10 @@ export default class App {
     {
       id: 'letterC',
       mesh: this.getSphere()
+    },
+    {
+      id: 'letterI',
+      mesh: this.getIcocrack()
     }];
 
     this.createScene();
@@ -121,6 +125,18 @@ export default class App {
       metalness: .58,
       emissive: '#000000',
       roughness: .18,
+    }));
+
+    mesh.position.set(0, 2, 0);
+
+    return mesh;
+  }
+  getIcocrack(color = 0x00ff00) {
+    const mesh = new THREE.Mesh(new THREE.IcosahedronGeometry(1, 0), new THREE.MeshPhysicalMaterial({
+      color,
+      metalness: .88,
+      emissive: '#ff0000',
+      roughness: .08,
     }));
 
     mesh.position.set(0, 2, 0);
